@@ -1,8 +1,8 @@
 import React from 'react';
-import { ConfigProvider } from 'antd';
 import './App.less';
+import { ConfigProvider } from 'antd';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { Home } from './components/home';
+import { Home } from './pages/home';
 
 const App = () => {
   return (
