@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Col, Row, Space } from 'antd';
+import { Button, Col, Row } from 'antd';
 import { Container } from '../../layout';
 import logo from '../../assets/images/btn-logo.svg';
 
