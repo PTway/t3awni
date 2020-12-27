@@ -36,11 +36,10 @@ export const ThirdStep = () => {
       <span className='label'>البريد الإلكتروني</span>
       <Form.Item
         name='email'
-        rules={[{ required: true, message: 'Please input your password!' }]}
+        rules={[{ required: true, message: 'الرجاء ادخال البريد الالكتروني' }]}
       >
         <Input />
       </Form.Item>
-      <br /> <br />
     </>
   );
 };

@@ -1,15 +1,21 @@
 import React from 'react';
 import { Col, Row } from 'antd';
 import logo from '../../assets/images/logo.svg';
+import { MenuFoldOutlined } from '@ant-design/icons';
+import { Link } from 'react-router-dom';
 
 export const Header = () => {
   return (
-    <Row justify='space-between' className='header'>
-      <Col span={4}>menu</Col>
-      <Col span={4}>
+    <Row justify='space-between' align='middle' className='header'>
+      <Col lg={4} md={8} sm={12} xs={12}>
+        <MenuFoldOutlined />
+      </Col>
+      <Col lg={4} md={8} sm={12} xs={12}>
         <Row>
           <h3 className='title'>Taawoni</h3>
-          <img src={logo} />
+          <Link to='/'>
+            <img src={logo} />
+          </Link>
         </Row>
       </Col>
     </Row>

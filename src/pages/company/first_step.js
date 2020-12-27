@@ -14,11 +14,11 @@ export const FirstStep = () => {
       </Row>
       <span className='label'>موعد التدريب التعاوني</span>
       <Form.Item
-        name='time'
+        name='orders'
         rules={[
           {
             required: true,
-            message: 'Please input your username!',
+            message: 'الرجاء اختيار موعد التدريب',
           },
         ]}
       >
@@ -45,30 +45,27 @@ export const FirstStep = () => {
         rules={[
           {
             required: true,
-            message: 'Please input your password!',
+            message: 'الرجاء ادخال الجنس',
           },
         ]}
       >
         <Input />
       </Form.Item>
 
+      <h4 className='label'>إمكانية صرف مكافئة تدريب</h4>
       <Form.Item
         name='salary'
-        // rules={[
-        //   {
-        //     required: true,
-        //     message: 'الرجاء اختيار أحد الخيارات',
-        //   },
-        // ]}
+        rules={[
+          {
+            required: true,
+            message: 'الرجاء اختيار أحد الخيارات',
+          },
+        ]}
       >
-        <h4 className='label'>إمكانية صرف مكافئة تدريب</h4>
-        <Radio.Group
-          // onChange={this.onChange}
-          value={'value'}
-        >
-          <Radio value={1}>لا يوجد مكافئة نقدية</Radio>
-          <Radio value={4}>
-            تصرف مكافئة قدرها..
+        <Radio.Group>
+          <Radio value={false}>لا يوجد مكافئة نقدية</Radio>
+          <Radio value={true}>
+            يوجد مكافئة نقدية
             {/* {value === 4 ? (
                              <Input style={{ width: 100, marginLeft: 10 }} />
                            ) : null} */}

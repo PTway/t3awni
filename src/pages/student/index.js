@@ -1,25 +1,24 @@
 import { Button, Col, Form, Row } from 'antd';
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import { CompanyBreif } from '../../components/company_breif';
+import { StudentBreif } from '../../components/student_breif';
 import { Container } from '../../layout';
 import { FirstStep } from './first_step';
 import { LastStep } from './last_step';
 import { SecondStep } from './second_step';
-import { ThirdStep } from './third_step';
 import config from '../../layout/config';
 
 const baseUrl = config.getBasePublicUrl() + '/api';
-export const Company = () => {
+export const Student = () => {
   const [steps, setSteps] = useState(1);
   const [lastStep, setLastStep] = useState(false);
   const [formValues, setFormValues] = useState({});
 
   useEffect(() => {
-    if (steps === 4) {
+    if (steps === 3) {
       try {
         axios
-          .post(`${baseUrl}/postCompanyData`, {
+          .post(`${baseUrl}/postStudentData`, {
             ...formValues,
           })
           .then(({ data }) => {
@@ -33,11 +32,11 @@ export const Company = () => {
         console.log('error', error);
       }
     }
-  }, [steps === 4]);
+  }, [steps === 3]);
 
   const onFinish = (values) => {
     setFormValues({ ...formValues, ...values });
-    if (steps < 4) {
+    if (steps < 3) {
       setSteps(steps + 1);
     }
   };
@@ -50,7 +49,7 @@ export const Company = () => {
     <Container>
       {!lastStep ? (
         <Row justify='space-around'>
-          <Col lg={20} xs={24} sm={24}>
+          <Col span={20}>
             <Row gutter={window.innerWidth > 768 ? 150 : 0}>
               <Col lg={12} md={12} sm={24} xs={24}>
                 <Form
@@ -58,15 +57,9 @@ export const Company = () => {
                   initialValues={{ remember: true }}
                   onFinish={onFinish}
                   // onFinishFailed={onFinishFailed}
-                  className='form-wrapper'
+                  className='form-wrapper student-form-wrapper'
                 >
-                  {steps == 1 ? (
-                    <FirstStep />
-                  ) : steps == 2 ? (
-                    <SecondStep />
-                  ) : (
-                    <ThirdStep />
-                  )}
+                  {steps == 1 ? <FirstStep /> : <SecondStep />}
                   <Form.Item>
                     <Row align='middle'>
                       <Col span={10}>
@@ -82,7 +75,7 @@ export const Company = () => {
                           type='primary'
                           htmlType='submit'
                         >
-                          {steps < 3 ? 'التالي' : 'أنشر'}
+                          {steps < 2 ? 'التالي' : 'تم'}
                         </Button>
                       </Col>
                     </Row>
@@ -90,7 +83,7 @@ export const Company = () => {
                 </Form>
               </Col>
               <Col lg={10} md={10} sm={0} xs={0}>
-                <CompanyBreif />
+                <StudentBreif />
               </Col>
             </Row>
           </Col>
