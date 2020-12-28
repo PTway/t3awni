@@ -44,11 +44,12 @@ export const SecondStep = () => {
         rules={[{ required: true, message: 'الرجاء ادخال حجم الشركة' }]}
       >
         <Select>
-          <Select.Option value={'1 - 10'}> 1-10</Select.Option>
-          <Select.Option value={'11 - 20'}> 11-20</Select.Option>
-          <Select.Option value={'21 - 30'}> 21-30</Select.Option>
-          <Select.Option value={'31 - 40'}> 31-40</Select.Option>
-          <Select.Option value={'+40'}> +40</Select.Option>
+          <Select.Option value={'0-1'}> 0-1</Select.Option>
+          <Select.Option value={'2-10'}> 2-10</Select.Option>
+          <Select.Option value={'11-50'}> 11-50</Select.Option>
+          <Select.Option value={'21-200'}> 21-200</Select.Option>
+          <Select.Option value={'201-500'}> 201-500</Select.Option>
+          <Select.Option value={'500-1000'}> 500-1000</Select.Option>
         </Select>
       </Form.Item>
       <span className='label'>مجال العمل</span>
