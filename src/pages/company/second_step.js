@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Form, Input, Row, Select } from 'antd';
+import axios from 'axios';
 
 export const SecondStep = () => {
-  const cities = ['الدمام', 'الرياض', 'جدة', 'مكة', 'المدينة'];
+  const [cities, setCities] = useState();
+
+  useEffect(() => {
+    try {
+      axios
+        .get('https://www.ptway.net/api/getcity?type=city')
+        .then(({ data }) => {
+          setCities(JSON.parse(data.cities));
+        })
+        .catch(() => {
+          console.log('Error');
+        });
+    } catch (error) {
+      console.log('error', error);
+    }
+  }, []);
 
   return (
     <>
@@ -28,9 +44,11 @@ export const SecondStep = () => {
         rules={[{ required: true, message: 'الرجاء ادخال حجم الشركة' }]}
       >
         <Select>
-          <Select.Option value={10}> 10</Select.Option>
-          <Select.Option value={30}> 30</Select.Option>
-          <Select.Option value={30}> 30</Select.Option>
+          <Select.Option value={'1 - 10'}> 1-10</Select.Option>
+          <Select.Option value={'11 - 20'}> 11-20</Select.Option>
+          <Select.Option value={'21 - 30'}> 21-30</Select.Option>
+          <Select.Option value={'31 - 40'}> 31-40</Select.Option>
+          <Select.Option value={'+40'}> +40</Select.Option>
         </Select>
       </Form.Item>
       <span className='label'>مجال العمل</span>
@@ -62,9 +80,9 @@ export const SecondStep = () => {
         ]}
       >
         <Select>
-          {cities.map((elm) => (
-            <Select.Option key={elm} value={elm}>
-              {elm}
+          {cities?.map((elm) => (
+            <Select.Option key={elm._id} value={elm.cityName}>
+              {elm.cityName}
             </Select.Option>
           ))}
         </Select>

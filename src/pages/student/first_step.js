@@ -51,6 +51,34 @@ export const FirstStep = () => {
       >
         <Input />
       </Form.Item>
+      <span className='label'> الفصل الدراسي</span>
+      <Form.Item
+        name='gender'
+        rules={[
+          {
+            required: true,
+            message: 'الرجاء ادخال  الفصل الدراسي',
+          },
+        ]}
+      >
+        <Select>
+          <Select.Option value='الأول'> الأول</Select.Option>
+          <Select.Option value='الثاني'> الثاني</Select.Option>
+        </Select>
+      </Form.Item>
+
+      <span className='label'>شهر التدريب </span>
+      <Form.Item
+        name='trainingSemesterMonth'
+        rules={[
+          {
+            required: true,
+            message: 'الرجاء ادخال شهر التدريب',
+          },
+        ]}
+      >
+        <Input />
+      </Form.Item>
     </>
   );
 };
