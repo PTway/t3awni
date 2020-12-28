@@ -18,13 +18,13 @@ export const FirstStep = () => {
         rules={[
           {
             required: true,
-            message: 'Please input your username!',
+            message: 'الرجاء اختيار موعد التدريب',
           },
         ]}
       >
         <Select>
-          <Select.Option value='1'> 1</Select.Option>
-          <Select.Option value='2'> 2</Select.Option>
+          <Select.Option value='2021'> 2021</Select.Option>
+          <Select.Option value='2022'> 2022</Select.Option>
         </Select>
       </Form.Item>
       <span className='label'>إسم الجامعة</span>

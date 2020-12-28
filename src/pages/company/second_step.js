@@ -67,6 +67,9 @@ export const SecondStep = () => {
         <Select>
           <Select.Option value='قطاع خاص'>قطاع خاص</Select.Option>
           <Select.Option value='قطاع حكومي'>قطاع حكومي</Select.Option>
+          <Select.Option value='قطاع خيري'>قطاع خيري</Select.Option>
+          <Select.Option value='قطاع شبه حكومي'>قطاع شبه حكومي</Select.Option>
+          <Select.Option value='قطاع غير ربحي'>قطاع غير ربحي</Select.Option>
         </Select>
       </Form.Item>
 

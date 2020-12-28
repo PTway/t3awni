@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Col, Form, Input, Radio, Row, Select } from 'antd';
+import { Col, Form, Radio, Row, Select } from 'antd';
 import axios from 'axios';
 
 export const FirstStep = () => {
@@ -40,8 +40,8 @@ export const FirstStep = () => {
         ]}
       >
         <Select>
-          <Select.Option value='1'> 1</Select.Option>
-          <Select.Option value='2'> 2</Select.Option>
+          <Select.Option value='2021'> 2021</Select.Option>
+          <Select.Option value='2022'> 2022</Select.Option>
         </Select>
       </Form.Item>
       <span className='label'>التخصص</span>
@@ -79,7 +79,7 @@ export const FirstStep = () => {
       </Form.Item>
       <span className='label'> الفصل الدراسي</span>
       <Form.Item
-        name='gender'
+        name='trainingSemester'
         rules={[
           {
             required: true,
@@ -103,7 +103,13 @@ export const FirstStep = () => {
           },
         ]}
       >
-        <Input />
+        <Select>
+          <Select.Option value='تدريب تعاوني'> تدريب تعاوني</Select.Option>
+          <Select.Option value='تدريب صيفي'> تدريب صيفي</Select.Option>
+          <Select.Option value='تدريب منتهي بالتوظيف'>
+            تدريب منتهي بالتوظيف
+          </Select.Option>
+        </Select>
       </Form.Item>
 
       <h4 className='label'>إمكانية صرف مكافئة تدريب</h4>
