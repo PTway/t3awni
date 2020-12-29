@@ -1,7 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Form, Input, Row, Select } from 'antd';
+import axios from 'axios';
 
 export const FirstStep = () => {
+  const [majors, setMajors] = useState();
+
+  useEffect(() => {
+    try {
+      axios
+        .get('https://www.ptway.net/api/get/majors?type=major')
+        .then(({ data }) => {
+          setMajors(JSON.parse(data.public_Major));
+        })
+        .catch(() => {
+          console.log('Error');
+        });
+    } catch (error) {
+      console.log('error', error);
+    }
+  }, []);
   return (
     <>
       <Row justify='space-between' align='middle'>
@@ -49,7 +66,13 @@ export const FirstStep = () => {
           },
         ]}
       >
-        <Input />
+        <Select>
+          {majors?.map((elm) => (
+            <Select.Option key={elm._id} value={elm.majorName}>
+              {elm.majorName}
+            </Select.Option>
+          ))}
+        </Select>
       </Form.Item>
       <span className='label'> الفصل الدراسي</span>
       <Form.Item
