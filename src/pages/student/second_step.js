@@ -1,8 +1,24 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, Form, Input, Row, Select } from 'antd';
+import axios from 'axios';
 
 export const SecondStep = () => {
-  const cities = ['الدمام', 'الرياض', 'جدة', 'مكة', 'المدينة'];
+  const [cities, setCities] = useState();
+
+  useEffect(() => {
+    try {
+      axios
+        .get('https://www.ptway.net/api/getcity?type=city')
+        .then(({ data }) => {
+          setCities(JSON.parse(data.cities));
+        })
+        .catch(() => {
+          console.log('Error');
+        });
+    } catch (error) {
+      console.log('error', error);
+    }
+  }, []);
 
   return (
     <>
@@ -41,9 +57,9 @@ export const SecondStep = () => {
         ]}
       >
         <Select>
-          {cities.map((elm) => (
-            <Select.Option key={elm} value={elm}>
-              {elm}
+          {cities?.map((elm) => (
+            <Select.Option key={elm._id} value={elm.cityName}>
+              {elm.cityName}
             </Select.Option>
           ))}
         </Select>
