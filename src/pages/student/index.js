@@ -49,7 +49,7 @@ export const Student = () => {
     <Container>
       {!lastStep ? (
         <Row justify='space-around'>
-          <Col span={20}>
+          <Col lg={20} xs={24} sm={24}>
             <Row gutter={window.innerWidth > 768 ? 150 : 0}>
               <Col lg={12} md={12} sm={24} xs={24}>
                 <Form
