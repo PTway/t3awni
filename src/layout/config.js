@@ -4,7 +4,7 @@ config.getBasePublicUrl = () => {
   if (process.env.NODE_ENV === 'development') {
     baseUrl = 'https://t3awni-test.herokuapp.com';
   } else if (process.env.NODE_ENV === 'production') {
-    baseUrl = 'https://t3awni.com/';
+    baseUrl = 'http://www.taawoni.com/';
   } else {
     baseUrl = 'http://localhost/';
   }
