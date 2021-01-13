@@ -76,7 +76,7 @@ export const FirstStep = () => {
       </Form.Item>
       <span className='label'> الفصل الدراسي</span>
       <Form.Item
-        name='gender'
+        name='trainingSemester'
         rules={[
           {
             required: true,
