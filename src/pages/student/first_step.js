@@ -31,7 +31,7 @@ export const FirstStep = () => {
       </Row>
       <span className='label'>موعد التدريب التعاوني</span>
       <Form.Item
-        name='orders'
+        name='trainingSemesterYear'
         rules={[
           {
             required: true,
